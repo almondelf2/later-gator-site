@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Later Gator — It won't let you forget</title>
+<script src="matomo.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav" aria-label="Primary navigation">
+  <div class="topnav-inner">
+    <button class="brand" onclick="location.href='index.html'" aria-label="Later Gator home">
+      <svg viewBox="0 0 375 375" data-gator-icon="white" aria-hidden="true"></svg>
+      Later Gator
+    </button>
+    <ul class="navlinks desktop-only">
+      <li><button onclick="location.href='index.html'" data-nav="home">Home</button></li>
+      <li><button onclick="location.href='how.html'" data-nav="how">How it works</button></li>
+      <li><button onclick="location.href='roadmap.html'" data-nav="roadmap">Roadmap</button></li>
+      <li><button onclick="location.href='faq.html'" data-nav="faq">FAQ</button></li>
+      <li><button onclick="location.href='contact.html'" data-nav="contact">Contact</button></li>
+    </ul>
+    <button class="nav-cta-secondary" onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+    <button class="nav-cta" onclick="openInterest('Top nav')">I'm interested</button>
+    <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="location.href='index.html'">Home</button>
+    <button onclick="location.href='how.html'">How it works</button>
+    <button onclick="location.href='roadmap.html'">Roadmap</button>
+    <button onclick="location.href='faq.html'">FAQ</button>
+    <button onclick="location.href='contact.html'">Contact</button>
+    <button onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<div class="page active" id="page-home">
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow mono">Now accepting early testers</span>
+        <h1>You didn't forget.<br>Your <em>reminder</em> just wasn't loud enough.</h1>
+        <p class="lede">Later Gator started with one person who'd tried every app there was. None of them worked &mdash; not because she wasn't trying, but because her phone is a portal to distraction, not a tool for focus.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="openInterest('Hero primary')">I'm interested</button>
+          <button class="btn-ghost" onclick="location.href='how.html'">See how it works</button>
+        </div>
+      </div>
+      <div class="heat-demo-wrap">
+        <div class="heat-demo-label">
+          <span class="mono">Live preview</span>
+          <span class="mono" id="demoClock">+00:00</span>
+        </div>
+        <div class="demo-card" id="demoCard">
+          <div class="demo-card-top">
+            <div style="display:flex; gap:10px; align-items:flex-start;">
+              <span class="demo-dot" id="demoDot"></span>
+              <span class="demo-title" id="demoTitle">Call the therapist back</span>
+            </div>
+            <span class="demo-timer" id="demoTimer">+00:00</span>
+          </div>
+          <span class="demo-status" id="demoStatus">Just captured</span>
+        </div>
+        <p class="heat-demo-caption">This is what ignoring a task looks like in Later Gator &mdash; sped up. Yours moves in real hours, not seconds.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-light">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono">The actual problem</span>
+        <h2>It was never about forgetting to write it down.</h2>
+        <p>You wrote it down. You said "send me her name." You meant every word of it. The problem is what happens after that &mdash; the part every other app ignores.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-cell">
+          <span class="mono">Capture isn't the gap</span>
+          <p>You're already good at saving things &mdash; a link, a voicemail, a note to self. The graveyard isn't empty. It's just a graveyard.</p>
+        </div>
+        <div class="problem-cell">
+          <span class="mono">Reminders get swiped</span>
+          <p>A banner competes with everything else on your lock screen, and loses. One swipe and it's gone, like it never fired at all.</p>
+        </div>
+        <div class="problem-cell">
+          <span class="mono">Follow-through is the job</span>
+          <p>The thing that actually needs solving isn't "where do I put this." It's "what makes sure I don't quietly let it go."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dim">
+    <div class="wrap">
+      <div class="origin-block">
+        <div class="origin-icon">
+          <svg viewBox="0 0 375 375" data-gator-icon="olive" aria-hidden="true"></svg>
+        </div>
+        <div>
+          <p class="quote">"She doesn't need a reminder. She needs something that won't take no for an answer."</p>
+          <p class="attrib">My wife has ADHD. She's tried every app. None of them worked &mdash; not because she wasn't trying, but because her phone is a portal to distraction, not a tool for focus. Later Gator doesn't ask her to change. It meets her where she already is &mdash; a planner she loves, a sticky-note system that works for about a week, and a closet of abandoned apps that all assumed she'd build a habit around them instead of the other way around.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono">The design philosophy</span>
+        <h2>Capture first. Configure only if you want to.</h2>
+        <p>Most task apps front-load the thinking &mdash; they ask you to plan before you've even committed to writing something down. Later Gator inverts that.</p>
+      </div>
+
+      <div class="philosophy-layers">
+        <div class="layer-row">
+          <span class="layer-num mono">01</span>
+          <div>
+            <span class="layer-tag">Zero configuration</span>
+            <h3>Just capture it</h3>
+            <p>Drop it in, Later Gator handles the rest. Heat-based escalation runs automatically from the moment something lands &mdash; no due date, no setup, no decisions required. This is the default for anyone who doesn't want to think about the system at all, they just want the thing remembered.</p>
+          </div>
+        </div>
+        <div class="layer-row">
+          <span class="layer-num mono">02</span>
+          <div>
+            <span class="layer-tag">Minimal configuration</span>
+            <h3>Give it a nudge</h3>
+            <p>Want a little more control? Set a rough urgency &mdash; this week, today, someday &mdash; and the escalation timeline adjusts without forcing you to pick an exact date or time.</p>
+          </div>
+        </div>
+        <div class="layer-row">
+          <span class="layer-num mono">03</span>
+          <div>
+            <span class="layer-tag">Full configuration</span>
+            <h3>Set a real deadline</h3>
+            <p>For the things that actually have a due date, pin it to a specific time. Now the countdown runs toward that moment instead of just counting up from when you captured it.</p>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:32px; opacity:0.7; font-size:1.02rem; max-width:620px;">It also means the app meets you at your energy level. Low energy? Just share it. High energy? Dial it in.</p>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:48px;">
+        <span class="mono" style="color:var(--signal-light);">Why it's built this way</span>
+        <h2 style="color:var(--parchment);">The app adapts to you. Not the other way around.</h2>
+        <p style="color:var(--parchment); opacity:0.78;">No two brains that struggle with follow-through struggle the same way. Most software asks you to learn its system. Later Gator is built to learn yours.</p>
+      </div>
+      <div class="philosophy-pillars">
+        <div class="pillar-cell">
+          <span class="mono">Meet, don't fix</span>
+          <p>The goal was never to make someone more organized. It's to make sure the things they already intended to do don't quietly disappear.</p>
+        </div>
+        <div class="pillar-cell">
+          <span class="mono">Progressive disclosure</span>
+          <p>Simple by default, powerful by choice. Under the hood it's a deeply configurable rules engine &mdash; but nobody has to see that unless they go looking for it.</p>
+        </div>
+        <div class="pillar-cell">
+          <span class="mono">Physical, not just digital</span>
+          <p>A notification you can swipe away isn't a consequence. The goal is to make a digital commitment feel as real as a note stuck to the fridge.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Be one of the first to try it.</h2>
+      <p>Later Gator is in active development. Early testers get first access and a direct line to shape what gets built next.</p>
+      <button class="btn-primary" onclick="openInterest('Home bottom band')">I'm interested</button>
+    </div>
+  </section>
+
+</div>
+
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg viewBox="0 0 375 375" data-gator-icon="white" aria-hidden="true"></svg>
+        Later Gator
+      </div>
+      <p class="footer-note">A smoke-test prototype. Not yet available on the App Store.</p>
+    </div>
+    <div class="footer-links">
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='how.html'">How it works</button>
+      <button onclick="location.href='roadmap.html'">Roadmap</button>
+      <button onclick="location.href='faq.html'">FAQ</button>
+      <button onclick="location.href='contact.html'">Contact</button>
+      <button onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+    </div>
+    <div>
+      <p class="interest-counter" id="footerCounter" aria-live="polite">Loading interest data…</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= Interest Modal ================= -->
+<div class="modal-overlay" id="interestModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeInterest()" aria-label="Close">×</button>
+    <div id="modalForm">
+      <span class="mono">Early access</span>
+      <h3 id="modalTitle">Want in when it's ready?</h3>
+      <p class="desc">Leave your email and we'll reach out personally &mdash; or just tap "Count me in" if you'd rather stay anonymous for now.</p>
+      <label for="interestEmail" class="sr-only">Email address (optional)</label>
+      <input type="email" id="interestEmail" placeholder="you@example.com (optional)" autocomplete="email">
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="submitInterest()">Notify me</button>
+        <button class="modal-skip" onclick="submitInterest(true)">Count me in, skip email</button>
+      </div>
+    </div>
+    <div class="modal-success" id="modalSuccess" style="display:none;">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="#7A7A58"/>
+        <path d="M30 52l14 14 28-30" stroke="#1C2118" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <h3>You're on the list.</h3>
+      <p>Thanks for the interest &mdash; we'll be in touch as soon as early access opens.</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

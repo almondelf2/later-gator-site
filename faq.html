@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Later Gator — It won't let you forget</title>
+<script src="matomo.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav" aria-label="Primary navigation">
+  <div class="topnav-inner">
+    <button class="brand" onclick="location.href='index.html'" aria-label="Later Gator home">
+      <svg viewBox="0 0 375 375" data-gator-icon="white" aria-hidden="true"></svg>
+      Later Gator
+    </button>
+    <ul class="navlinks desktop-only">
+      <li><button onclick="location.href='index.html'" data-nav="home">Home</button></li>
+      <li><button onclick="location.href='how.html'" data-nav="how">How it works</button></li>
+      <li><button onclick="location.href='roadmap.html'" data-nav="roadmap">Roadmap</button></li>
+      <li><button onclick="location.href='faq.html'" data-nav="faq">FAQ</button></li>
+      <li><button onclick="location.href='contact.html'" data-nav="contact">Contact</button></li>
+    </ul>
+    <button class="nav-cta-secondary" onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+    <button class="nav-cta" onclick="openInterest('Top nav')">I'm interested</button>
+    <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="location.href='index.html'">Home</button>
+    <button onclick="location.href='how.html'">How it works</button>
+    <button onclick="location.href='roadmap.html'">Roadmap</button>
+    <button onclick="location.href='faq.html'">FAQ</button>
+    <button onclick="location.href='contact.html'">Contact</button>
+    <button onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+  </div>
+</nav>
+
+<!-- ================= FAQ ================= -->
+<div class="page active" id="page-faq">
+
+  <header class="page-header">
+    <div class="wrap">
+      <span class="mono">FAQ</span>
+      <h1>Questions worth answering honestly.</h1>
+      <p>Some of this is settled. Some of it genuinely isn't yet &mdash; we'd rather tell you that than make something up.</p>
+    </div>
+  </header>
+
+  <section class="section-light">
+    <div class="wrap">
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            What exactly does Later Gator do?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>It catches things you mean to deal with later &mdash; a link, a voicemail, a text someone sent you &mdash; before they disappear into the graveyard of good intentions. You share it to Later Gator the same way you'd share it to anyone else. Later Gator holds onto it, and if you don't follow through, it doesn't just send a banner and give up. It escalates.</p>
+              <p>It's not a place to organize your whole life. It's a place specifically for the things you'd otherwise lose.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Who is this actually for?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Mainly: people who've downloaded two or three productivity apps, used each for a few days, and quietly stopped without ever uninstalling them. If that's you, the problem was never that you didn't know how to use a task app &mdash; it's that none of them had any teeth.</p>
+              <p>Later Gator is being built especially with neurodivergent adults in mind &mdash; ADHD, executive dysfunction, or anyone whose brain doesn't respond well to a reminder that's one swipe away from gone. But the core idea, alerts that don't give up after one try, helps anyone whose phone currently makes it easier to ignore something than to do it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            What happens to what I share or type into it?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Whatever you capture &mdash; a link, a note, a voicemail &mdash; is used to run the app for you and nothing else. It isn't sold, and it isn't used to advertise to you. Anthropic's Claude products, including the tools used to build this prototype, don't run ads or let advertisers pay to influence what gets shown to anyone &mdash; and that same principle is the bar for Later Gator itself.</p>
+              <p>The full data and privacy policy will be published before this leaves prototype stage. Right now, treat anything you submit through the interest form or contact page as going directly to the person building this, not into a marketing list.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-question-label">
+              What will it cost?
+              <span class="faq-tag undecided">Not decided yet</span>
+            </span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Honestly &mdash; we don't know yet, and we'd rather say that plainly than promise a number we might not keep. The plan is to figure out pricing the right way: by talking to people who'd actually use this and seeing what they currently spend time, money, or effort on to solve the same problem, before deciding what's fair to charge.</p>
+              <p>Whatever the model ends up being, early testers who sign up now will hear about it first, and the basic capture-and-remind experience is not expected to require payment just to try.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Is it available now? What about Android?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Not yet &mdash; what you can see right now is a working prototype, not the shipped app. The honest next step is a real iOS TestFlight build for early testers, ahead of any public App Store release. Android isn't ruled out, but iOS comes first.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            What's the deal with smart home alerts and the flashlight strobe?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>The idea is that a reminder shouldn't have to stay trapped on a screen you're not looking at. If a banner and a sound haven't gotten your attention, the next step can move into your physical space &mdash; a light, a speaker, or your phone's flashlight strobing until you deal with the task.</p>
+              <p>These are further out on the roadmap, not in the current prototype, and they'll always be optional and configurable &mdash; nothing escalates further than you've told it to.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Will this actually work for how my brain handles reminders?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>That's genuinely the open question this whole prototype exists to test &mdash; not something we're going to claim with certainty before hearing from people outside one household. Accessibility isn't planned as a bolt-on feature, though: voice control, text-to-speech, and high-contrast display are on the roadmap as core parts of the experience, not extras added later.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            I clicked "I'm interested" &mdash; what happens next?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>You're added to the list of people to reach out to as soon as there's a real build to test, and your interest helps make the case that this is worth building further. If you left an email, expect a real, personal message when that happens &mdash; not an automated drip campaign.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Can I tell you what I actually want, instead of voting on a list?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Please do &mdash; that's what the contact page is for. Votes on the roadmap page are a fast signal, but a real story about something you tried and abandoned is worth more than any click. If you've got one, that's the more useful thing to send.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            What's the Energy and Dread stuff I keep seeing mentioned?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Two attributes you'll eventually be able to add to any task: Energy (how much capacity it'll take) and Dread (how much you're avoiding it). The idea is to plan around your actual state on a given day, not just a calendar that doesn't know you're running on empty.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Is there a game or rewards system?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>There's a lightweight one planned, not live yet. You're cast as a pirate, the gator is the thing that catches up to you when something's overdue, and completing tasks earns treasure and badges. It's designed to support follow-through, not turn the app into a different kind of distraction.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Can I share tasks with someone else?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>That's on the roadmap. Two different ways are planned: one where you split ownership of tasks directly with someone, and one that's accountability-only, where someone just checks in on your progress without taking on any of the task themselves.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Will there be an AI feature that breaks tasks down for me?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Yes, it's planned. A vague, heavy task like "deal with insurance" could be split into a few concrete first steps automatically. It's the kind of breakdown that's genuinely hard to do for yourself when the task itself feels like too much.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            What happens if I just delete a task instead of finishing it?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Right now, nothing special. On the roadmap is a short, judgment-free check-in when you delete something, not just when you complete it &mdash; the goal is understanding what kinds of tasks tend to get abandoned and why, not guilt-tripping anyone.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Is this only for people with ADHD?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>No. It's being built especially with ADHD and executive dysfunction in mind because that's where the problem is most acute, but the underlying idea &mdash; alerts that don't give up after one try &mdash; helps anyone whose phone currently makes it easier to ignore something than to do it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Does it replace my calendar?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>No. It's meant to sit alongside whatever you already use for scheduled events. Two-way calendar sync is on the roadmap so you can see your Later Gator tasks and your existing calendar in one place, without having to give up either.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            What does "progressive disclosure" actually mean here?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>It means the app is simple by default and powerful by choice. You can use Later Gator with zero setup and never touch a configuration screen, or you can dig in and customize alert rules, escalation paths, and attributes in detail. Nobody is forced into the complex version.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Why a gator and a pirate theme?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>The gator is cast as the thing that catches up to you when a task goes overdue &mdash; not a mascot, more like the consequence with teeth. You're the pirate trying to stay ahead of it. It's meant to make the stakes feel a little more real without being childish about it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            I have a different kind of brain or situation than what's described here. Will this still work for me?
+            <span class="faq-icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Possibly &mdash; that's genuinely part of what this smoke test is trying to find out. The core mechanic (capture something, then get escalating reminders until you deal with it) isn't specific to one diagnosis or situation. If you try it and it doesn't fit, telling us why is exactly the kind of feedback this stage of building needs.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Still have a question?</h2>
+      <p>Ask it directly &mdash; it goes to the person actually building this, not a support queue.</p>
+      <button class="btn-primary" onclick="location.href='contact.html'">Go to contact</button>
+    </div>
+  </section>
+
+</div>
+
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg viewBox="0 0 375 375" data-gator-icon="white" aria-hidden="true"></svg>
+        Later Gator
+      </div>
+      <p class="footer-note">A smoke-test prototype. Not yet available on the App Store.</p>
+    </div>
+    <div class="footer-links">
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='how.html'">How it works</button>
+      <button onclick="location.href='roadmap.html'">Roadmap</button>
+      <button onclick="location.href='faq.html'">FAQ</button>
+      <button onclick="location.href='contact.html'">Contact</button>
+      <button onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+    </div>
+    <div>
+      <p class="interest-counter" id="footerCounter" aria-live="polite">Loading interest data…</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= Interest Modal ================= -->
+<div class="modal-overlay" id="interestModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeInterest()" aria-label="Close">×</button>
+    <div id="modalForm">
+      <span class="mono">Early access</span>
+      <h3 id="modalTitle">Want in when it's ready?</h3>
+      <p class="desc">Leave your email and we'll reach out personally &mdash; or just tap "Count me in" if you'd rather stay anonymous for now.</p>
+      <label for="interestEmail" class="sr-only">Email address (optional)</label>
+      <input type="email" id="interestEmail" placeholder="you@example.com (optional)" autocomplete="email">
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="submitInterest()">Notify me</button>
+        <button class="modal-skip" onclick="submitInterest(true)">Count me in, skip email</button>
+      </div>
+    </div>
+    <div class="modal-success" id="modalSuccess" style="display:none;">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="#7A7A58"/>
+        <path d="M30 52l14 14 28-30" stroke="#1C2118" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <h3>You're on the list.</h3>
+      <p>Thanks for the interest &mdash; we'll be in touch as soon as early access opens.</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

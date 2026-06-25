@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Later Gator — It won't let you forget</title>
+<script src="matomo.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav" aria-label="Primary navigation">
+  <div class="topnav-inner">
+    <button class="brand" onclick="location.href='index.html'" aria-label="Later Gator home">
+      <svg viewBox="0 0 375 375" data-gator-icon="white" aria-hidden="true"></svg>
+      Later Gator
+    </button>
+    <ul class="navlinks desktop-only">
+      <li><button onclick="location.href='index.html'" data-nav="home">Home</button></li>
+      <li><button onclick="location.href='how.html'" data-nav="how">How it works</button></li>
+      <li><button onclick="location.href='roadmap.html'" data-nav="roadmap">Roadmap</button></li>
+      <li><button onclick="location.href='faq.html'" data-nav="faq">FAQ</button></li>
+      <li><button onclick="location.href='contact.html'" data-nav="contact">Contact</button></li>
+    </ul>
+    <button class="nav-cta-secondary" onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+    <button class="nav-cta" onclick="openInterest('Top nav')">I'm interested</button>
+    <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="location.href='index.html'">Home</button>
+    <button onclick="location.href='how.html'">How it works</button>
+    <button onclick="location.href='roadmap.html'">Roadmap</button>
+    <button onclick="location.href='faq.html'">FAQ</button>
+    <button onclick="location.href='contact.html'">Contact</button>
+    <button onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+  </div>
+</nav>
+
+<!-- ================= CONTACT ================= -->
+<div class="page active" id="page-contact">
+
+  <header class="page-header">
+    <div class="wrap">
+      <span class="mono">Contact</span>
+      <h1>Tell us what's falling through your cracks.</h1>
+      <p>Whether you want early access, have a question, or just want to vent about an app that didn't work for you &mdash; this goes straight to the person building it.</p>
+    </div>
+  </header>
+
+  <section class="section-light">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <h2>Why reach out</h2>
+        <p>Later Gator is being shaped directly by conversations like this one. Real stories about what you've tried and why it didn't stick are more useful than any feature request.</p>
+
+        <div class="contact-fact">
+          <span class="mono">Best for</span>
+          <p>Anyone who's downloaded a productivity app, used it for a few days, and quietly stopped without ever uninstalling it.</p>
+        </div>
+        <div class="contact-fact">
+          <span class="mono">Response time</span>
+          <p>This is a one-person team mid-program &mdash; expect a real reply, not an autoresponder, usually within a few days.</p>
+        </div>
+        <div class="contact-fact">
+          <span class="mono">Privacy</span>
+          <p>Your message and email are only used to follow up about Later Gator. Nothing is sold or shared.</p>
+        </div>
+
+        <div class="quick-interest">
+          <p class="mono">Prefer one click?</p>
+          <button class="btn-primary" onclick="openInterest('Contact page quick CTA')">I'm interested</button>
+        </div>
+      </div>
+
+      <div>
+        <iframe src="https://opnform.com/forms/2856bdff-f954-4b89-9d24-d6bd6fa3ffe8" width="100%" height="600" frameborder="0" style="border-radius:10px;" title="Later Gator contact form"></iframe>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg viewBox="0 0 375 375" data-gator-icon="white" aria-hidden="true"></svg>
+        Later Gator
+      </div>
+      <p class="footer-note">A smoke-test prototype. Not yet available on the App Store.</p>
+    </div>
+    <div class="footer-links">
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='how.html'">How it works</button>
+      <button onclick="location.href='roadmap.html'">Roadmap</button>
+      <button onclick="location.href='faq.html'">FAQ</button>
+      <button onclick="location.href='contact.html'">Contact</button>
+      <button onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+    </div>
+    <div>
+      <p class="interest-counter" id="footerCounter" aria-live="polite">Loading interest data…</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= Interest Modal ================= -->
+<div class="modal-overlay" id="interestModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeInterest()" aria-label="Close">×</button>
+    <div id="modalForm">
+      <span class="mono">Early access</span>
+      <h3 id="modalTitle">Want in when it's ready?</h3>
+      <p class="desc">Leave your email and we'll reach out personally &mdash; or just tap "Count me in" if you'd rather stay anonymous for now.</p>
+      <label for="interestEmail" class="sr-only">Email address (optional)</label>
+      <input type="email" id="interestEmail" placeholder="you@example.com (optional)" autocomplete="email">
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="submitInterest()">Notify me</button>
+        <button class="modal-skip" onclick="submitInterest(true)">Count me in, skip email</button>
+      </div>
+    </div>
+    <div class="modal-success" id="modalSuccess" style="display:none;">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="#7A7A58"/>
+        <path d="M30 52l14 14 28-30" stroke="#1C2118" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <h3>You're on the list.</h3>
+      <p>Thanks for the interest &mdash; we'll be in touch as soon as early access opens.</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

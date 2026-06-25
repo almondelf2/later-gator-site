@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Later Gator — It won't let you forget</title>
+<script src="matomo.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav" aria-label="Primary navigation">
+  <div class="topnav-inner">
+    <button class="brand" onclick="location.href='index.html'" aria-label="Later Gator home">
+      <svg viewBox="0 0 375 375" data-gator-icon="white" aria-hidden="true"></svg>
+      Later Gator
+    </button>
+    <ul class="navlinks desktop-only">
+      <li><button onclick="location.href='index.html'" data-nav="home">Home</button></li>
+      <li><button onclick="location.href='how.html'" data-nav="how">How it works</button></li>
+      <li><button onclick="location.href='roadmap.html'" data-nav="roadmap">Roadmap</button></li>
+      <li><button onclick="location.href='faq.html'" data-nav="faq">FAQ</button></li>
+      <li><button onclick="location.href='contact.html'" data-nav="contact">Contact</button></li>
+    </ul>
+    <button class="nav-cta-secondary" onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+    <button class="nav-cta" onclick="openInterest('Top nav')">I'm interested</button>
+    <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="location.href='index.html'">Home</button>
+    <button onclick="location.href='how.html'">How it works</button>
+    <button onclick="location.href='roadmap.html'">Roadmap</button>
+    <button onclick="location.href='faq.html'">FAQ</button>
+    <button onclick="location.href='contact.html'">Contact</button>
+    <button onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+  </div>
+</nav>
+
+<!-- ================= ROADMAP ================= -->
+<div class="page active" id="page-roadmap">
+
+  <header class="page-header">
+    <div class="wrap">
+      <span class="mono">Roadmap</span>
+      <h1>What's built, what's next, what's later.</h1>
+      <p>This site is Phase 1. Later Gator is being built in public, in phases &mdash; here's the honest state of things, not a polished feature list.</p>
+    </div>
+  </header>
+
+  <section class="section-dim">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono">Get involved</span>
+        <h2>There's more than one way to help build this.</h2>
+        <p>Whichever fits &mdash; a quick vote, a real conversation, or rolling up your sleeves.</p>
+      </div>
+      <div class="involved-grid">
+        <div class="involved-card">
+          <span class="involved-num mono">01</span>
+          <h3>Vote on the roadmap</h3>
+          <p>Tell us what to build first. Every feature below has a quick 4-option vote &mdash; no account, no email, just an honest click.</p>
+          <button class="involved-action" onclick="document.getElementById('tier-now').scrollIntoView({behavior:'smooth'})">Start voting</button>
+        </div>
+        <div class="involved-card">
+          <span class="involved-num mono">02</span>
+          <h3>Join UX research</h3>
+          <p>Talk to us about how you actually handle follow-through. Real conversations shape this more than any roadmap vote ever could.</p>
+          <button class="involved-action secondary" onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+        </div>
+        <div class="involved-card">
+          <span class="involved-num mono">03</span>
+          <h3>Contribute to the app or business</h3>
+          <p>Designer, developer, or just someone who wants to help build this for real? We're looking for people, not just feedback.</p>
+          <button class="involved-action secondary" onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono">The full feature list</span>
+        <h2>Every feature, grouped by status and theme.</h2>
+        <p>Tap the <strong>i</strong> on any feature for a fuller explanation. Vote with one tap &mdash; love it, like it, not urgent, or skip it. You can change your vote any time.</p>
+      </div>
+
+      <div class="tier-section" id="tier-now">
+        <div class="tier-head">
+          <span class="tier-dot" style="background:var(--heat-green)"></span>
+          <h2>Now &mdash; in the prototype</h2>
+        </div>
+        <p class="tier-sub">What's actually built and working in the live prototype you're looking at right now.</p>
+        <div class="theme-group">
+          <span class="theme-label mono">Capture &amp; organization</span>
+          <div class="feature-card" data-slug="share-capture">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Share-to-task capture
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Send anything from any app straight into Later Gator in two taps.</p>
+                <p>The OS share sheet is the front door. A link, voicemail, photo, or text thread becomes a task without opening Later Gator first or typing anything &mdash; the same motion you already use to send something to a friend.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Share-to-task capture">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'share-capture', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'share-capture', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'share-capture', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'share-capture', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="feature-card" data-slug="heat-bank">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Heat-scale task bank
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Color-coded view of every task, sorted by how long it's been waiting.</p>
+                <p>Every task shifts color the longer it sits untouched, from cool blue to charcoal. You never have to read a list top to bottom to know what's actually burning &mdash; the color tells you before the words do.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Heat-scale task bank">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'heat-bank', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'heat-bank', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'heat-bank', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'heat-bank', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-group">
+          <span class="theme-label mono">Reminders</span>
+          <div class="feature-card" data-slug="reminder-config">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Reminder configuration
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Set a timeframe or deadline, then pick how and how often you're reminded.</p>
+                <p>Choose "today," "this week," or a specific date and time, then layer on channel (push, eventually email/SMS), frequency, and how intense the alert should feel &mdash; from a quiet banner to something that won't let go.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Reminder configuration">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'reminder-config', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'reminder-config', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'reminder-config', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'reminder-config', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-group">
+          <span class="theme-label mono">Reflection</span>
+          <div class="feature-card" data-slug="checkins">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Completion check-ins
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Quick mood, energy, and difficulty check before and after a task.</p>
+                <p>A fast, skippable set of questions when you start and finish something &mdash; how it felt, how hard it actually was, how long it really took. Over time this builds a real picture of your patterns, not a guess.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Completion check-ins">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'checkins', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'checkins', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'checkins', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'checkins', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tier-section" id="tier-next">
+        <div class="tier-head">
+          <span class="tier-dot" style="background:var(--heat-orange)"></span>
+          <h2>Next &mdash; early access</h2>
+        </div>
+        <p class="tier-sub">What's being built right now, ahead of the first real install outside this prototype.</p>
+        <div class="theme-group">
+          <span class="theme-label mono">Alerts</span>
+          <div class="feature-card" data-slug="escalating-alerts">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Real escalating push alerts
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Banner &rarr; sound &rarr; persistent alert, actually firing on your phone instead of just in the demo.</p>
+                <p>The home page demo shows what this looks like sped up. This is that same ladder, live: if a banner gets swiped away, the next step gets louder, automatically.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Real escalating push alerts">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'escalating-alerts', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'escalating-alerts', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'escalating-alerts', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'escalating-alerts', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-group">
+          <span class="theme-label mono">Capture &amp; organization</span>
+          <div class="feature-card" data-slug="finish-setup">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                "Remind me to finish setup"
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Defer configuring a task without losing it &mdash; get nudged to finish later instead of abandoning it.</p>
+                <p>Most apps treat an incomplete task as your problem to remember. Later Gator treats unfinished setup as its own remindable event, so half-filled-out tasks don't just vanish because you got interrupted.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Remind me to finish setup">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'finish-setup', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'finish-setup', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'finish-setup', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'finish-setup', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="feature-card" data-slug="onboarding">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Personalized onboarding
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>A short set of questions about how you check tasks and what kind of nudge actually works on you.</p>
+                <p>Instead of a generic tutorial, a handful of questions about your habits and preferences set your starting reminder style, focus session length, and notification intensity automatically &mdash; used to set defaults, not just collected and ignored.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Personalized onboarding">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'onboarding', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'onboarding', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'onboarding', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'onboarding', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-group">
+          <span class="theme-label mono">Cognitive load tools</span>
+          <div class="feature-card" data-slug="energy-dread">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Energy &amp; Dread levels
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Estimate how much capacity a task takes and how much you're dreading it, then plan around your actual state.</p>
+                <p>Two new attributes per task: Energy (how much mental or physical capacity it'll take) and Dread (how much you're avoiding it). On a low-energy day, you can see what's actually realistic instead of guessing.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Energy and Dread levels">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'energy-dread', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'energy-dread', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'energy-dread', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'energy-dread', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="feature-card" data-slug="task-status">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Task status granularity
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>More honest than done/not done: Not Started, In Progress, Partially Complete, or Complete.</p>
+                <p>Real progress isn't binary. This lets a task reflect that you started it, got interrupted, and are most of the way there &mdash; instead of forcing an all-or-nothing checkbox.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Task status granularity">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'task-status', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'task-status', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'task-status', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'task-status', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-group">
+          <span class="theme-label mono">Platform</span>
+          <div class="feature-card" data-slug="testflight">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                iOS TestFlight release
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>First real install for early testers, outside of this prototype.</p>
+                <p>The actual app, not a demo &mdash; installed on your phone through Apple's TestFlight program, ahead of any public App Store release.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on iOS TestFlight release">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'testflight', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'testflight', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'testflight', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'testflight', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tier-section" id="tier-later">
+        <div class="tier-head">
+          <span class="tier-dot" style="background:var(--heat-blue)"></span>
+          <h2>Later &mdash; the bigger vision</h2>
+        </div>
+        <p class="tier-sub">Where this could go with the right team and validated demand. Not promises &mdash; a real, honest picture of the vision.</p>
+        <div class="theme-group">
+          <span class="theme-label mono">Alerts</span>
+          <div class="feature-card" data-slug="smart-home">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Smart home escalation
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Lights, speakers, and flashlight strobe as the last, hardest-to-ignore step.</p>
+                <p>If a banner, sound, and persistent alert haven't worked, the reminder can move into your physical space &mdash; a smart bulb changing color, a speaker announcing the task, or your own phone's flashlight strobing until you deal with it.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Smart home escalation">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'smart-home', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'smart-home', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'smart-home', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'smart-home', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="feature-card" data-slug="location-contact-triggers">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Location &amp; contact triggers
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Get reminded by where you are or who just reached out, not just by the clock.</p>
+                <p>A task tied to "the hardware store" can remind you when you're actually near one. A task waiting on a reply from someone specific can resurface the moment they text.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Location and contact triggers">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'location-contact-triggers', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'location-contact-triggers', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'location-contact-triggers', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'location-contact-triggers', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="feature-card" data-slug="multi-alert">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Multi-level alerts &amp; custom sounds
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Different snooze lengths each time, multiple alert types per task, and alarms from your own music library.</p>
+                <p>Escalation doesn't have to be identical every time &mdash; the first snooze can be short, the next longer, and the sound itself can be something you actually chose.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Multi-level alerts and custom sounds">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'multi-alert', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'multi-alert', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'multi-alert', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'multi-alert', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-group">
+          <span class="theme-label mono">Cognitive load tools</span>
+          <div class="feature-card" data-slug="dependencies">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Task dependencies &amp; routines
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Chain tasks together, or group several into a routine where finishing one nudges you about the rest.</p>
+                <p>"Pack the bag" can wait until "do laundry" is done. A morning routine can group five small tasks so completing one prompts the next, instead of tracking each separately.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Task dependencies and routines">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'dependencies', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'dependencies', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'dependencies', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'dependencies', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="feature-card" data-slug="ai-subtasks">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                AI-suggested "tiny tasks"
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Let AI break an intimidating task into smaller, startable pieces.</p>
+                <p>A vague, heavy task like "deal with insurance" can be split into a few concrete first steps automatically &mdash; the kind of breakdown that's hard to do for yourself when the task itself feels like too much.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on AI-suggested tiny tasks">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'ai-subtasks', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'ai-subtasks', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'ai-subtasks', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'ai-subtasks', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="feature-card" data-slug="abandon-debrief">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Debrief on letting something go
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>A quick, judgment-free check-in when you delete a task, not just when you finish one.</p>
+                <p>Most apps only ask how it went when you succeed. This asks what got in the way when you don't &mdash; building a real record of what kinds of tasks tend to get dropped, and why.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Debrief on letting something go">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'abandon-debrief', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'abandon-debrief', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'abandon-debrief', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'abandon-debrief', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-group">
+          <span class="theme-label mono">Accessibility</span>
+          <div class="feature-card" data-slug="accessibility">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Voice control, text-to-speech &amp; high-contrast
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Built in, not bolted on.</p>
+                <p>Full voice command support, tasks and alerts read aloud, and a high-contrast display mode &mdash; designed in from the start rather than retrofitted as an afterthought.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Voice control, text-to-speech and high-contrast">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'accessibility', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'accessibility', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'accessibility', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'accessibility', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-group">
+          <span class="theme-label mono">Collaboration</span>
+          <div class="feature-card" data-slug="shared-focus">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Shared tasks &amp; focus mode
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Hand a task to someone else, or drop into a distraction-free timer when you're ready to actually do the thing.</p>
+                <p>Share a task or list with one person or a group. Separately, a Pomodoro-style focus timer with distraction blocking for when you've decided right now is the moment.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Shared tasks and focus mode">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'shared-focus', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'shared-focus', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'shared-focus', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'shared-focus', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="feature-card" data-slug="group-types">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Two ways to share responsibility
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>Some groups split the work. Others just keep you honest.</p>
+                <p>One group type shares ownership of tasks and lists directly. The other is accountability-only &mdash; someone checks in on your progress without taking on any of the task themselves.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Two ways to share responsibility">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'group-types', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'group-types', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'group-types', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'group-types', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="feature-card" data-slug="team-plans">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Team &amp; institutional plans
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>For coaches, employers, and schools supporting someone else's follow-through.</p>
+                <p>Built for the cases where the person paying isn't the person using the app &mdash; a parent, a coach, an employer covering licenses for a team that needs the extra structure.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Team and institutional plans">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'team-plans', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'team-plans', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'team-plans', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'team-plans', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-group">
+          <span class="theme-label mono">Gamification</span>
+          <div class="feature-card" data-slug="pirate-rewards">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Pirate-themed rewards
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>A lightweight game layer &mdash; treasure, badges, and group challenges &mdash; designed to support task completion, not distract from it.</p>
+                <p>You're cast as a pirate; the gator is the thing that catches up to you when something's overdue. Completing tasks earns treasure and badges, with optional group challenges for anyone who finds a little competition motivating.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Pirate-themed rewards">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'pirate-rewards', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'pirate-rewards', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'pirate-rewards', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'pirate-rewards', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-group">
+          <span class="theme-label mono">Data</span>
+          <div class="feature-card" data-slug="data-viz">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Personal data visualization
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>See your own patterns &mdash; what kinds of tasks you stall on, when you're most likely to follow through.</p>
+                <p>A private dashboard of your own completion times, snooze patterns, and energy trends over time, so you can see what's actually true about how you work instead of guessing.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Personal data visualization">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'data-viz', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'data-viz', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'data-viz', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'data-viz', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="theme-group">
+          <span class="theme-label mono">Form factor</span>
+          <div class="feature-card" data-slug="mounted-tablet">
+            <div class="feature-card-head">
+              <button class="feature-card-title" onclick="toggleFeatureInfo(this)" aria-expanded="false">
+                Mounted tablet mode
+                <span class="info-icon" aria-hidden="true">i</span>
+              </button>
+            </div>
+            <div class="feature-card-desc">
+              <div class="feature-card-desc-inner">
+                <p>A distraction-free, always-visible version of your task bank for a wall or counter.</p>
+                <p>For anyone who wants Later Gator visible in the home without a phone's distractions attached to it &mdash; a dedicated tablet showing just your tasks, nothing else.</p>
+              </div>
+            </div>
+            <div class="vote-segment" role="group" aria-label="Vote on Mounted tablet mode">
+              <button class="vote-seg-btn" data-option="love" onclick="castFeatureVote(this, 'mounted-tablet', 'love')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128293;</span>
+                <span class="vote-seg-label">Love it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="like" onclick="castFeatureVote(this, 'mounted-tablet', 'like')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128077;</span>
+                <span class="vote-seg-label">Like it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="later" onclick="castFeatureVote(this, 'mounted-tablet', 'later')">
+                <span class="vote-seg-icon" aria-hidden="true">&#128338;</span>
+                <span class="vote-seg-label">Not urgent</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+              <button class="vote-seg-btn" data-option="skip" onclick="castFeatureVote(this, 'mounted-tablet', 'skip')">
+                <span class="vote-seg-icon" aria-hidden="true">&#10005;</span>
+                <span class="vote-seg-label">Skip it</span>
+                <span class="vote-seg-count">0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <h2>Want a bigger say in what ships next?</h2>
+      <p>Early testers get pulled into roadmap decisions directly, not just a changelog email.</p>
+      <button class="btn-primary" onclick="openInterest('Roadmap bottom')">I'm interested</button>
+    </div>
+  </section>
+
+</div>
+
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg viewBox="0 0 375 375" data-gator-icon="white" aria-hidden="true"></svg>
+        Later Gator
+      </div>
+      <p class="footer-note">A smoke-test prototype. Not yet available on the App Store.</p>
+    </div>
+    <div class="footer-links">
+      <button onclick="location.href='index.html'">Home</button>
+      <button onclick="location.href='how.html'">How it works</button>
+      <button onclick="location.href='roadmap.html'">Roadmap</button>
+      <button onclick="location.href='faq.html'">FAQ</button>
+      <button onclick="location.href='contact.html'">Contact</button>
+      <button onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+    </div>
+    <div>
+      <p class="interest-counter" id="footerCounter" aria-live="polite">Loading interest data…</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= Interest Modal ================= -->
+<div class="modal-overlay" id="interestModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeInterest()" aria-label="Close">×</button>
+    <div id="modalForm">
+      <span class="mono">Early access</span>
+      <h3 id="modalTitle">Want in when it's ready?</h3>
+      <p class="desc">Leave your email and we'll reach out personally &mdash; or just tap "Count me in" if you'd rather stay anonymous for now.</p>
+      <label for="interestEmail" class="sr-only">Email address (optional)</label>
+      <input type="email" id="interestEmail" placeholder="you@example.com (optional)" autocomplete="email">
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="submitInterest()">Notify me</button>
+        <button class="modal-skip" onclick="submitInterest(true)">Count me in, skip email</button>
+      </div>
+    </div>
+    <div class="modal-success" id="modalSuccess" style="display:none;">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="#7A7A58"/>
+        <path d="M30 52l14 14 28-30" stroke="#1C2118" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <h3>You're on the list.</h3>
+      <p>Thanks for the interest &mdash; we'll be in touch as soon as early access opens.</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
