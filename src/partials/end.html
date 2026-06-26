@@ -1,0 +1,30 @@
+<!-- ================= Interest Modal ================= -->
+<div class="modal-overlay" id="interestModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeInterest()" aria-label="Close">×</button>
+    <div id="modalForm">
+      <span class="mono">Show interest</span>
+      <h3 id="modalTitle">Want to be notified when it's ready?</h3>
+      <p class="desc">Leave your email and we'll reach out &mdash; or just tap "I'm interested" if you'd rather stay anonymous for now.</p>
+      <label for="interestEmail" class="sr-only">Email address (optional)</label>
+      <input type="email" id="interestEmail" placeholder="you@example.com (optional)" autocomplete="email">
+      <div class="modal-actions">
+        <button class="btn-primary" onclick="submitInterest()">Notify me</button>
+        <button class="modal-skip" onclick="submitInterest(true)">I'm interested, skip email</button>
+      </div>
+    </div>
+    <div class="modal-success" id="modalSuccess" style="display:none;">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" class="icon-fill-signal"/>
+        <path d="M30 52l14 14 28-30" class="icon-stroke-ink" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <h3>You're on the list.</h3>
+      <p>Thanks for the interest &mdash; we'll be in touch as soon as early access opens.</p>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

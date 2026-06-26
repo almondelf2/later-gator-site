@@ -1,0 +1,26 @@
+<nav class="topnav" aria-label="Primary navigation">
+  <div class="topnav-inner">
+    <button class="brand" onclick="location.href='index.html'" aria-label="Later Gator home">
+      <svg viewBox="0 0 375 375" data-gator-icon="white" aria-hidden="true"></svg>
+      Later Gator
+    </button>
+    <ul class="navlinks desktop-only">
+      <li><button onclick="location.href='index.html'" data-nav="home">Home</button></li>
+      <li><button onclick="location.href='how.html'" data-nav="how">How it works</button></li>
+      <li><button onclick="location.href='roadmap.html'" data-nav="roadmap">Roadmap</button></li>
+      <li><button onclick="location.href='faq.html'" data-nav="faq">FAQ</button></li>
+      <li><button onclick="location.href='contact.html'" data-nav="contact">Contact</button></li>
+    </ul>
+    <button class="nav-cta-secondary" onclick="location.href='roadmap.html#get-involved'">Get involved</button>
+    <button class="nav-cta" onclick="openInterest('Top nav')">I'm interested</button>
+    <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="location.href='index.html'">Home</button>
+    <button onclick="location.href='how.html'">How it works</button>
+    <button onclick="location.href='roadmap.html'">Roadmap</button>
+    <button onclick="location.href='faq.html'">FAQ</button>
+    <button onclick="location.href='contact.html'">Contact</button>
+    <button onclick="location.href='roadmap.html#get-involved'">Get involved</button>
+  </div>
+</nav>
