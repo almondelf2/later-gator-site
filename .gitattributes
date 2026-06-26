@@ -1,0 +1,8 @@
+# Dev-only build-system files — keep absent on main during every dev→main merge.
+# The 'ours' driver is defined in .git/config as: merge.ours.driver = true
+# (exits 0 immediately, preserving the current branch's version — i.e. absent).
+# Without this, each merge from dev would try to add these paths because they
+# are tracked on dev but were explicitly excluded from the merge commit on main.
+src/**    merge=ours
+build.py  merge=ours
+build.bat merge=ours
