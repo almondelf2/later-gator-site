@@ -1,3 +1,32 @@
+/*
+ * Later Gator marketing site — script.js
+ *
+ * Loaded on every page via src/partials/end.html. No bundler/build step for
+ * this file (unlike the HTML, which is assembled by build.py) — it's plain,
+ * unscoped global functions, which keeps the no-tooling setup simple but means
+ * every function/variable here lives on the global scope. Fine for a small
+ * single-file site with no other scripts; worth revisiting with a module
+ * pattern or an IIFE wrapper if this file grows much larger or a second
+ * script is ever added.
+ *
+ * STORAGE / LOGGING OVERVIEW
+ * There are two parallel, independent persistence paths, used for different
+ * purposes:
+ *   1. window.storage (safeGet/safeSet) — the in-page key/value store used to
+ *      drive the LIVE UI: the footer's "N people have raised a paw" counter
+ *      and the per-feature vote counts/selected-state on the Roadmap page.
+ *      This is what the page reads back to render itself.
+ *   2. Google Sheets via Apps Script Web App (logToSheet / logVoteToSheet) —
+ *      a fire-and-forget durable record of every interest signup and vote,
+ *      for Raymond to review later. The page never reads this back; it's
+ *      write-only from the client's perspective.
+ * Both are written on the same user actions (submitInterest, castFeatureVote)
+ * so they should normally stay in agreement, but they are NOT kept in sync
+ * with each other programmatically — a failure in one does not roll back
+ * the other (intentional: the live counter shouldn't break if Sheets is down,
+ * and vice versa).
+ */
+
   // ---------- Navigation: highlight current page in nav ----------
   function highlightCurrentNav() {
     const file = location.pathname.split('/').pop() || 'index.html';
@@ -48,9 +77,14 @@
 
   // ---------- Storage-backed interest tracking ----------
   let currentSource = '';
+  let lastFocusedTrigger = null; // element to restore focus to when the interest modal closes
 
   // Google Sheet logging via Apps Script Web App.
   // Fire-and-forget: a failure here never blocks or errors out the person's experience.
+  // NOTE: these URLs are meant to be public. Google Apps Script Web Apps deployed as
+  // "anyone can access" are designed to be called directly from client-side JS like this
+  // (there's no secret key to leak) — the script itself controls what it accepts/writes on
+  // the server side. Do not treat these as credentials that need hiding.
   const SHEET_LOG_URL = 'https://script.google.com/macros/s/AKfycbx4iZWJU6TtNlr7Cbwx4Uz1ilgpqFqUmqzg3uak9B1m86Vyp-Hcao6eHVcst5NrZXwS/exec';
   const VOTE_LOG_URL = 'https://script.google.com/macros/s/AKfycbwZBUDnDn0YIFOkkG8BmdGFU8k7rvX6pBML2dFUME59aMVWfUUcv58vrA0rympYKSsO/exec';
 
@@ -101,6 +135,7 @@
 
   function openInterest(source) {
     currentSource = source || 'Unknown';
+    lastFocusedTrigger = document.activeElement;
     document.getElementById('modalForm').style.display = 'block';
     document.getElementById('modalSuccess').style.display = 'none';
     document.getElementById('interestEmail').value = '';
@@ -110,14 +145,48 @@
 
   function closeInterest() {
     document.getElementById('interestModal').classList.remove('open');
+    // Return focus to whatever opened the modal (a nav button, a CTA, etc.)
+    // so keyboard users don't lose their place in the page on close.
+    if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
+      lastFocusedTrigger.focus();
+    }
+    lastFocusedTrigger = null;
   }
 
   document.getElementById('interestModal').addEventListener('click', function(e) {
     if (e.target === this) closeInterest();
   });
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && document.getElementById('interestModal').classList.contains('open')) {
+    const modal = document.getElementById('interestModal');
+    if (!modal.classList.contains('open')) return;
+
+    if (e.key === 'Escape') {
       closeInterest();
+      return;
+    }
+
+    // Minimal focus trap: while the modal is open, Tab/Shift+Tab cycles only
+    // through focusable elements inside the modal box, instead of escaping
+    // out to the page underneath. Standard expected behavior for a dialog.
+    if (e.key === 'Tab') {
+      const focusable = modal.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const list = Array.prototype.filter.call(focusable, function(el) {
+        return el.offsetParent !== null; // skip hidden elements (e.g. the success view when form is showing)
+      });
+      if (list.length === 0) return;
+      const first = list[0];
+      const last = list[list.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
   });
 
@@ -252,8 +321,13 @@
     const file = variant === 'olive' ? 'assets/logo-olive.svg' : 'assets/logo-white.svg';
     const res = await fetch(file);
     const text = await res.text();
-    // Extract just the inner markup (defs/g/path content) from the fetched SVG document
-    const inner = text.replace(/^.*?<svg[^>]*>/s, '').replace(/<\/svg>\s*$/s, '');
+    // Parse as XML and pull out the <svg> element's inner markup. Using DOMParser
+    // instead of a regex string-replace is more robust to incidental differences in
+    // the source file (an XML declaration, a comment before <svg>, attribute order,
+    // etc.) that a regex would be brittle against.
+    const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
+    const svgEl = doc.querySelector('svg');
+    const inner = svgEl ? svgEl.innerHTML : '';
     gatorIconCache[variant] = inner;
     return inner;
   }
@@ -277,15 +351,30 @@
   }
 
   // ---------- Heat-scale hero demo animation ----------
+  // Colors are read from the --heat-* custom properties defined in styles.css
+  // (single source of truth) rather than duplicated here as hex literals, so
+  // changing the brand heat scale in one place keeps this demo in sync.
   (function() {
+    const root = getComputedStyle(document.documentElement);
+    const cssVar = (name) => root.getPropertyValue(name).trim();
+
+    const heatBlue = cssVar('--heat-blue');
+    const heatGreen = cssVar('--heat-green');
+    const heatYellow = cssVar('--heat-yellow');
+    const heatOrange = cssVar('--heat-orange');
+    const heatRed = cssVar('--heat-red');
+    const heatGray = cssVar('--heat-gray');
+    const parchment = cssVar('--parchment');
+    const swamp = cssVar('--swamp');
+
     const stages = [
-      { label: 'Just captured', status: 'Just captured', color: '#3B82C4', bg: 'rgba(59,130,196,0.14)', time: '+00:02' },
-      { label: 'Call the therapist back', status: 'Fresh', color: '#4F9E5C', bg: 'rgba(79,158,92,0.14)', time: '+02:14' },
-      { label: 'Call the therapist back', status: 'Aging', color: '#D9A33D', bg: 'rgba(217,163,61,0.16)', time: '+11:40' },
-      { label: 'Call the therapist back', status: 'Stale', color: '#D9722E', bg: 'rgba(217,114,46,0.16)', time: '1d 06h' },
-      { label: 'Call the therapist back', status: 'Hot', color: '#C9453F', bg: 'rgba(201,69,63,0.16)', time: '3d 02h' },
-      { label: 'Call the therapist back', status: 'Old', color: '#6B6B66', bg: 'rgba(107,107,102,0.18)', time: '6d 18h' },
-      { label: 'Call the therapist back', status: 'Overdue', color: '#F6F3EA', bg: '#1C2118', time: '9d 04h' }
+      { label: 'Just captured', status: 'Just captured', color: heatBlue, bg: 'rgba(59,130,196,0.14)', time: '+00:02' },
+      { label: 'Call the therapist back', status: 'Fresh', color: heatGreen, bg: 'rgba(79,158,92,0.14)', time: '+02:14' },
+      { label: 'Call the therapist back', status: 'Aging', color: heatYellow, bg: 'rgba(217,163,61,0.16)', time: '+11:40' },
+      { label: 'Call the therapist back', status: 'Stale', color: heatOrange, bg: 'rgba(217,114,46,0.16)', time: '1d 06h' },
+      { label: 'Call the therapist back', status: 'Hot', color: heatRed, bg: 'rgba(201,69,63,0.16)', time: '3d 02h' },
+      { label: 'Call the therapist back', status: 'Old', color: heatGray, bg: 'rgba(107,107,102,0.18)', time: '6d 18h' },
+      { label: 'Call the therapist back', status: 'Overdue', color: parchment, bg: swamp, time: '9d 04h' }
     ];
     let idx = 0;
     const card = document.getElementById('demoCard');
@@ -300,11 +389,11 @@
       card.style.borderColor = s.color;
       dot.style.background = s.color;
       title.textContent = s.label;
-      title.style.color = (s.status === 'Overdue') ? '#F6F3EA' : '#F6F3EA';
+      title.style.color = parchment;
       status.textContent = s.status;
       status.style.color = s.color;
       timer.textContent = s.time;
-      timer.style.color = '#F6F3EA';
+      timer.style.color = parchment;
       timer.style.opacity = 0.75;
     }
 
