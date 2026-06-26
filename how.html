@@ -1,13 +1,19 @@
+<!-- GENERATED FILE — do not edit directly.
+     Source: src/partials/*.html + src/pages/page-how.html
+     Edit those, then run `python build.py` to regenerate this file. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Later Gator — It won't let you forget</title>
+<title>Later Gator — follow up on anything</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script src="matomo.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto+Condensed:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,7 +31,7 @@
       <li><button onclick="location.href='faq.html'" data-nav="faq">FAQ</button></li>
       <li><button onclick="location.href='contact.html'" data-nav="contact">Contact</button></li>
     </ul>
-    <button class="nav-cta-secondary" onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+    <button class="nav-cta-secondary" onclick="location.href='roadmap.html#get-involved'">Get involved</button>
     <button class="nav-cta" onclick="openInterest('Top nav')">I'm interested</button>
     <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle menu">☰</button>
   </div>
@@ -35,7 +41,7 @@
     <button onclick="location.href='roadmap.html'">Roadmap</button>
     <button onclick="location.href='faq.html'">FAQ</button>
     <button onclick="location.href='contact.html'">Contact</button>
-    <button onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
+    <button onclick="location.href='roadmap.html#get-involved'">Get involved</button>
   </div>
 </nav>
 
@@ -62,10 +68,10 @@
           </div>
           <div class="step-visual">
             <svg width="140" height="100" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="30" y="50" width="80" height="40" rx="8" fill="#F6F3EA" fill-opacity="0.08"/>
-              <rect x="40" y="60" width="60" height="8" rx="4" fill="#F6F3EA" fill-opacity="0.3"/>
-              <circle cx="70" cy="30" r="18" fill="#7A7A58"/>
-              <path d="M70 22v16M62 30l8 8 8-8" stroke="#1C2118" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <rect x="30" y="50" width="80" height="40" rx="8" class="icon-fill-parchment-faint"/>
+              <rect x="40" y="60" width="60" height="8" rx="4" class="icon-fill-parchment-soft"/>
+              <circle cx="70" cy="30" r="18" class="icon-fill-signal"/>
+              <path d="M70 22v16M62 30l8 8 8-8" class="icon-stroke-ink" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             </svg>
           </div>
         </div>
@@ -78,9 +84,9 @@
           </div>
           <div class="step-visual">
             <svg width="160" height="90" viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="20" y="20" width="120" height="50" rx="8" stroke="#F6F3EA" stroke-opacity="0.3" stroke-width="2"/>
+              <rect x="20" y="20" width="120" height="50" rx="8" class="icon-stroke-parchment-soft" stroke-width="2"/>
               <rect x="34" y="34" width="40" height="22" rx="6" fill="#3B82C4" fill-opacity="0.85"/>
-              <rect x="86" y="34" width="40" height="22" rx="6" stroke="#F6F3EA" stroke-opacity="0.4" stroke-width="2"/>
+              <rect x="86" y="34" width="40" height="22" rx="6" class="icon-stroke-parchment-mid" stroke-width="2"/>
             </svg>
           </div>
         </div>
@@ -127,31 +133,31 @@
       <div class="heat-legend" style="gap:14px;" role="img" aria-label="Full heat scale legend, blue through black">
         <div style="text-align:center;">
           <span class="chip" style="background:var(--heat-blue); display:block; margin:0 auto 8px;"></span>
-          <span class="mono" style="font-size:0.62rem; color:#F6F3EA; opacity:0.5;">New</span>
+          <span class="mono text-parchment-faint" style="font-size:0.62rem;">New</span>
         </div>
         <div style="text-align:center;">
           <span class="chip" style="background:var(--heat-green); display:block; margin:0 auto 8px;"></span>
-          <span class="mono" style="font-size:0.62rem; color:#F6F3EA; opacity:0.5;">Fresh</span>
+          <span class="mono text-parchment-faint" style="font-size:0.62rem;">Fresh</span>
         </div>
         <div style="text-align:center;">
           <span class="chip" style="background:var(--heat-yellow); display:block; margin:0 auto 8px;"></span>
-          <span class="mono" style="font-size:0.62rem; color:#F6F3EA; opacity:0.5;">Aging</span>
+          <span class="mono text-parchment-faint" style="font-size:0.62rem;">Aging</span>
         </div>
         <div style="text-align:center;">
           <span class="chip" style="background:var(--heat-orange); display:block; margin:0 auto 8px;"></span>
-          <span class="mono" style="font-size:0.62rem; color:#F6F3EA; opacity:0.5;">Stale</span>
+          <span class="mono text-parchment-faint" style="font-size:0.62rem;">Stale</span>
         </div>
         <div style="text-align:center;">
           <span class="chip" style="background:var(--heat-red); display:block; margin:0 auto 8px;"></span>
-          <span class="mono" style="font-size:0.62rem; color:#F6F3EA; opacity:0.5;">Hot</span>
+          <span class="mono text-parchment-faint" style="font-size:0.62rem;">Hot</span>
         </div>
         <div style="text-align:center;">
           <span class="chip" style="background:var(--heat-gray); display:block; margin:0 auto 8px;"></span>
-          <span class="mono" style="font-size:0.62rem; color:#F6F3EA; opacity:0.5;">Old</span>
+          <span class="mono text-parchment-faint" style="font-size:0.62rem;">Old</span>
         </div>
         <div style="text-align:center;">
           <span class="chip" style="background:var(--heat-black); display:block; margin:0 auto 8px;"></span>
-          <span class="mono" style="font-size:0.62rem; color:#F6F3EA; opacity:0.5;">Overdue</span>
+          <span class="mono text-parchment-faint" style="font-size:0.62rem;">Overdue</span>
         </div>
       </div>
     </div>
@@ -159,34 +165,29 @@
 
   <section class="cta-band">
     <div class="wrap">
-      <h2>Curious how it'd handle your graveyard of good intentions?</h2>
-      <p>Tell us you're interested and we'll reach out when early access opens.</p>
-      <button class="btn-primary" onclick="openInterest('How-it-works bottom')">I'm interested</button>
+      <h2>Shape what gets built.</h2>
+      <p>Later Gator is in active development: vote on features, participate in research, give your feedback, or become a partner.</p>
+      <button class="btn-ghost" onclick="location.href='roadmap.html'">Show me more</button>
     </div>
   </section>
 
 </div>
 
-
 <footer>
   <div class="wrap footer-inner">
+    <div>
+      <p class="interest-counter" id="footerCounter" aria-live="polite">Loading interest data…</p>
+    </div>
     <div>
       <div class="footer-brand">
         <svg viewBox="0 0 375 375" data-gator-icon="white" aria-hidden="true"></svg>
         Later Gator
       </div>
-      <p class="footer-note">A smoke-test prototype. Not yet available on the App Store.</p>
     </div>
     <div class="footer-links">
-      <button onclick="location.href='index.html'">Home</button>
-      <button onclick="location.href='how.html'">How it works</button>
-      <button onclick="location.href='roadmap.html'">Roadmap</button>
-      <button onclick="location.href='faq.html'">FAQ</button>
+      <button onclick="openInterest('Hero primary')">Show interest</button>
+      <button onclick="location.href='roadmap.html#get-involved'">Get involved</button>
       <button onclick="location.href='contact.html'">Contact</button>
-      <button onclick="window.open('https://opnform.com/forms/42d0b6ec-af07-47de-8e13-5fca2ed67805', '_blank')">Get involved</button>
-    </div>
-    <div>
-      <p class="interest-counter" id="footerCounter" aria-live="polite">Loading interest data…</p>
     </div>
   </div>
 </footer>
@@ -196,20 +197,20 @@
   <div class="modal-box">
     <button class="modal-close" onclick="closeInterest()" aria-label="Close">×</button>
     <div id="modalForm">
-      <span class="mono">Early access</span>
-      <h3 id="modalTitle">Want in when it's ready?</h3>
-      <p class="desc">Leave your email and we'll reach out personally &mdash; or just tap "Count me in" if you'd rather stay anonymous for now.</p>
+      <span class="mono">Show interest</span>
+      <h3 id="modalTitle">Want to be notified when it's ready?</h3>
+      <p class="desc">Leave your email and we'll reach out &mdash; or just tap "I'm interested" if you'd rather stay anonymous for now.</p>
       <label for="interestEmail" class="sr-only">Email address (optional)</label>
       <input type="email" id="interestEmail" placeholder="you@example.com (optional)" autocomplete="email">
       <div class="modal-actions">
         <button class="btn-primary" onclick="submitInterest()">Notify me</button>
-        <button class="modal-skip" onclick="submitInterest(true)">Count me in, skip email</button>
+        <button class="modal-skip" onclick="submitInterest(true)">I'm interested, skip email</button>
       </div>
     </div>
     <div class="modal-success" id="modalSuccess" style="display:none;">
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="50" cy="50" r="46" fill="#7A7A58"/>
-        <path d="M30 52l14 14 28-30" stroke="#1C2118" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="50" cy="50" r="46" class="icon-fill-signal"/>
+        <path d="M30 52l14 14 28-30" class="icon-stroke-ink" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
       </svg>
       <h3>You're on the list.</h3>
       <p>Thanks for the interest &mdash; we'll be in touch as soon as early access opens.</p>
